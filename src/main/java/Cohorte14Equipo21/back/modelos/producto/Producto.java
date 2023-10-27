@@ -44,7 +44,7 @@ public class Producto {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categorias_id", nullable = false)
     private Categoria categoria;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ofertas_id", nullable = false)
     private Oferta oferta;
 

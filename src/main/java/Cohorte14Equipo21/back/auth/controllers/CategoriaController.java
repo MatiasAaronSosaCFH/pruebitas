@@ -27,9 +27,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Page<Categoria>> getById(@PathVariable Long id ,
-                                                   @RequestParam(defaultValue = "1") int page,
-                                                   @RequestParam(defaultValue = "10") int size,
-                                                   @RequestParam(defaultValue = "id") String sortBy,
-                                                   @RequestParam(defaultValue = "ASC") String sortOrder)
+    public ResponseEntity<Categoria> getById(@PathVariable Long id ){
+        return ResponseEntity.ok(categoriaService.encontrarCategoria(id));
+    }
 }

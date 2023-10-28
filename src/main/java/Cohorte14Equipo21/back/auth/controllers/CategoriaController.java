@@ -25,4 +25,11 @@ public class CategoriaController {
         Page<Categoria> categories = categoriaService.getPages(page,size,sortBy,sortOrder);
         return ResponseEntity.ok(categories);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Page<Categoria>> getById(@PathVariable Long id ,
+                                                   @RequestParam(defaultValue = "1") int page,
+                                                   @RequestParam(defaultValue = "10") int size,
+                                                   @RequestParam(defaultValue = "id") String sortBy,
+                                                   @RequestParam(defaultValue = "ASC") String sortOrder)
 }

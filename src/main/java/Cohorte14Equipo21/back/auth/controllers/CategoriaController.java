@@ -27,7 +27,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> getById(@PathVariable Long id ){
+    public ResponseEntity<Categoria> getById(@PathVariable(value="id") Long id ){
         return ResponseEntity.ok(categoriaService.encontrarCategoria(id).get());
     }
 }

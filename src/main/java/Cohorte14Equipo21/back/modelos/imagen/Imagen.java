@@ -1,5 +1,6 @@
 package Cohorte14Equipo21.back.modelos.imagen;
 
+import Cohorte14Equipo21.back.modelos.imagen.DTO.ImagenDTO;
 import Cohorte14Equipo21.back.modelos.producto.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,5 +31,16 @@ public class Imagen {
         this.nombre=nombre;
         this.imagenUrl=imagenUrl;
         this.imagenId=imagenId;
+    }
+
+    public Imagen(ImagenDTO imagenDTO){
+        this.nombre = imagenDTO.nombre();
+        this.imagenUrl=imagenDTO.url();
+        this.imagenId=imagenDTO.id();
+    }
+
+
+    public static Imagen retornarImagen(ImagenDTO imagenDTO){
+        return new Imagen(imagenDTO);
     }
 }

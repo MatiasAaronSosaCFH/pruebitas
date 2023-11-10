@@ -1,5 +1,7 @@
 package Cohorte14Equipo21.back.modelos.usuarios.usuario;
 
+import Cohorte14Equipo21.back.modelos.usuarios.Direccion;
+import Cohorte14Equipo21.back.modelos.usuarios.auth.DTO.LoginDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,12 +28,15 @@ public class User implements UserDetails {
     private Long id;
     @Column(nullable = false)
     private String userName;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToMany
+    @JoinColumn(name = "direcciones", nullable = false, referencedColumnName = "id")
+    private List<Direccion> direccion;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -26,4 +26,8 @@ public class Categoria {
         this.id=categoriaDTO.id();
         this.nombre=categoriaDTO.nombre();
     }
+
+    public static Categoria retornarCategoria(CategoriaDTO categoriaDTO){
+        return new Categoria(categoriaDTO);
+    }
 }

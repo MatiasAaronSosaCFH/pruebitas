@@ -21,4 +21,10 @@ public class Tipo {
     private Long id;
     @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    public Tipo(TipoDTO tipoDTO){
+        this.nombre=tipoDTO.nombre();
+    }
+
+
 }

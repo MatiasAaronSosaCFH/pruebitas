@@ -53,7 +53,6 @@ public class ProductoController {
         return ResponseEntity.ok(productoService.findByCategory(pageable, category));
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Producto> findOneById(@PathVariable Long id) {
         Optional<Producto> product = productoService.encontrarProducto(id);

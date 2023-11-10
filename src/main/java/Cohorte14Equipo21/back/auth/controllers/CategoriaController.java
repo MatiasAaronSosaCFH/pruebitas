@@ -22,10 +22,11 @@ public class CategoriaController {
         Page<Categoria> categories = categoriaService.getPages(page,size,sortBy,sortOrder);
         return ResponseEntity.ok(categories);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> getById(@PathVariable(value = "id") Long id ){
         var prueba = categoriaService.encontrarCategoria(id);
         return prueba.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
-    }
+
 }
